@@ -1,38 +1,30 @@
 "use strict";
-var i = 0;
-class Ship
+var board = document.createElement("TABLE");
+var count = 0;
+
+function setup()
 {
-    constructor()
+    for (var r = 0; r < 5; r++)
     {
-        this.health = 100;
-        this.shield = 100;
-        this.armor = 100;
-        this.speed = 10;
-        this.weapon = 1;
-        console.log("Ship created: " + this.health);
+        var row = board.insertRow(r);
+        for(var c = 0; c < 5; c++)
+        {
+            var butt = document.createElement("input");
+            butt.type = "button";
+            butt.value = "Hi";
+            butt.onclick = function(){this.value=r*c; console.log("Clicked!");};
+            var cell = row.insertCell(c);
+            cell.appendChild(butt);
+        }
     }
-}
-
-class Player extends Ship
-{
     
+    document.body.appendChild(board);
 }
 
-class Enemy extends Ship
-{
-    
-}
-
-function createShip() {
-    var ship = new Ship();
-    console.log("New ship created: " + ship.health);
-    return ship;
-}
 
 function gameLoop()
 {
-    i = i + 1;
-    console.log(i);
+
 }
 
 // game loop
